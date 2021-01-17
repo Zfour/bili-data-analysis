@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>交互设计-bilibili-主页</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- 我的自定义样式 -->
+    <link href="static/css/mystyle.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+         <!-- 侧边主菜单 -->
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img class="logo" src="static/img/logo.png">
+<!--<i class="fas fa-laugh-wink"></i>-->
+                </div>
+                <div class="sidebar-brand-text mx-3">交互设计<sup>&nbsp;bilibili</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>主页</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                应用
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+               <a class="nav-link" href="/toplist">
+                    <i class="fas fa-fw fa-list"></i>
+                    <span>排行榜</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/database">
+                    <i class="fas fa-fw fa-database"></i>
+                    <span>数据库</span></a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-flask"></i>
+                    <span>数据分析</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">主要条目:</h6>
+                        <a class="collapse-item" href="/time-infection">投搞时段影响</a>
+                        <a class="collapse-item" href="/interact-infection">用户行为影响</a>
+                        <a class="collapse-item" href="/word-infection">文字关联性影响</a>
+
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+               关于
+            </div>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/Zfour/bili-data-analysis">
+                    <i class="fas fa-star"></i>
+                    <span>项目仓库</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="https://zfe.space/">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>关于我</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form> -->
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-rss fa-fw"></i>
+                                <span style="padding-left: 10px">zfe.one</span>
+                                <!-- Counter - Alerts
+                                <span class="badge badge-danger badge-counter">3+</span>-->
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i><span style="padding-left: 10px">499984532@qq.com</span>
+                                <!-- Counter - Messages
+                                <span class="badge badge-danger badge-counter">7</span>-->
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="static/img/undraw_profile_1.svg"
+                                            alt="">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="static/img/undraw_profile_2.svg"
+                                            alt="">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="static/img/undraw_profile_3.svg"
+                                            alt="">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle"
+                                    src="https://zfe.space/images/headimage.png">
+                                <span style="margin-left: 20px" class="mr-2 d-none d-lg-inline text-gray-600 small">作者：冰卡诺</span>
+
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">信息概览</h1>
+                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                视频样本量</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-video fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                数据更新时间</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2020-12-25</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">依赖
+                                            </div>
+                                            <!--<div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>-->
+                                             <div class="h5 mb-0 font-weight-bold text-gray-800">python/flask</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-code fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                数据来源</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">bili：交互设计</div>
+
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-database fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- 发布日期分布 -->
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">发布日期分布</h6>
+                                    <div class="dropdown no-arrow">
+
+
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                       <!-- <canvas id="myAreaChart"></canvas> -->
+
+                                        <div id="time-data-bili-videxo" style="width: 100%;height:100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 播放量分布 -->
+                       <div class="col-xl-6 col-lg-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">播放量排名分布</h6>
+                                    <div class="dropdown no-arrow">
+
+
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                       <!-- <canvas id="myAreaChart"></canvas> -->
+
+                                        <div id="rank-data-bili-video" style="width: 100%;height:100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">用户行为分布</h6>
+                                    <div class="dropdown no-arrow">
+
+
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                       <!-- <canvas id="myAreaChart"></canvas> -->
+
+                                        <div id="action-data-bili-video" style="width: 100%;height:100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">标签知识图谱分布</h6>
+                                    <div class="dropdown no-arrow">
+
+
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body" style="padding: 0">
+                                     <div class="chart-area" style="height:30em
+                                     ;">
+
+                                     <div id="tag-data-bili-video" style="width:100%;height:100%;padding: 4px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; ICE KANO 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="static/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins
+    <script src="static/vendor/chart.js/Chart.min.js"></script>-->
+
+    <!-- Page level custom scripts -->
+    <!--<script src="static/js/demo/chart-area-demo.js"></script>-->
+    <!--<script src="static/js/demo/chart-pie-demo.js"></script>-->
+    <script src="static/js/echarts.min.js"></script>
+
+
+
+    <!-- echarts 图表 -->
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('time-data-bili-videxo'));
+    let arr ={{datelist|tojson}};
+            var maxdate=new Date(arr[1]);
+        var mindate=new Date(arr[1]);
+    for (item of arr){
+        itemdate=new Date(item);
+        if (itemdate>maxdate){
+            maxdate = itemdate
+        }
+        if (itemdate<mindate){
+            mindate = itemdate
+        }
+    }
+    let objGroup = arr.reduce(function (obj, name) {
+        obj[name] = obj[name] ? ++obj[name] : 1;
+        return obj;
+            }, {});
+    let objKey = Object.keys(objGroup);
+    let objValue = Object.values(objGroup);
+
+        // 指定图表的配置项和数据
+
+        var dateTime = mindate;
+        var data =[]
+        firstday = mindate
+        lastday =  maxdate
+        day = (lastday - firstday) / (1000 * 60 * 60 * 24)
+for (var i = 0; i < day; i++) {
+    dataitem=[]
+
+    dateTime=dateTime.setDate(dateTime.getDate()+1);
+    dateTime=new Date(dateTime);
+    timesrt= [dateTime.getFullYear(),dateTime.getMonth()+1, dateTime.getDate()].join('/');
+    dataitem.push(timesrt)
+    valuestr = 0
+    for (index in  objKey){
+        var date = new Date(objKey[index]);
+        if(date.getTime() == dateTime.getTime()){
+            valuestr = objValue[index]
+        }
+    }
+    dataitem.push(valuestr)
+    data.push(dataitem)
+}
+
+
+option = {
+
+    tooltip: {
+        trigger: 'axis',
+        position: function (pt) {
+            return [pt[0], '10%'];
+        }
+    },
+    toolbox: {
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        name:'日期',
+        type: 'time',
+        boundaryGap: false
+    },
+    yAxis: {
+        name:'投稿量',
+        type: 'value',
+        boundaryGap: [0, '100%'],
+        max: function (value) {return value.max}
+    },
+    dataZoom: [{
+        type: 'inside',
+        start: 87,
+        end: 100
+    }, {
+        start: 87,
+        end: 100
+    }],
+    series: [
+        {
+            name: '视频量',
+            color:'#4e73df',
+            type: 'line',
+
+            symbol: 'none',
+            areaStyle: {},
+            data: data
+        }
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('rank-data-bili-video'));
+
+        // 指定图表的配置项和数据
+
+option2 = {
+
+    tooltip: {
+        trigger: 'axis',
+        position: function (pos, params, dom, rect, size) {
+      // 鼠标在左侧时 tooltip 显示到右侧，鼠标在右侧时 tooltip 显示到左侧。
+      var obj = {top: 0};
+      obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
+      return obj;
+  }
+    },
+    toolbox: {
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        name:'排名',
+        type: 'category',
+        boundaryGap: false,
+    },
+    yAxis: {
+        name:'播放量',
+        type: 'value',
+        boundaryGap: [0, '100%'],
+        max: function (value) {return value.max}
+    },
+    dataZoom: [{
+        type: 'inside',
+        start: 0,
+        end: 2
+    }, {
+        type : 'slider',
+        start: 0,
+        end: 2
+    }],
+    series: [
+        {
+            name: '标题',
+            color:'#9bb5ff',
+            type: 'custom',
+            data: {{ bili_video_title|tojson }}
+        },
+        {
+            name: '播放量',
+            color:'#4e73df',
+            type: 'bar',
+            data: {{ bili_video_rank|tojson }}
+        }
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option2);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart3 = echarts.init(document.getElementById('action-data-bili-video'));
+
+        // 指定图表的配置项和数据
+
+option3 = {
+
+     tooltip: {
+        trigger: 'axis',
+        position: function (pos, params, dom, rect, size) {
+      // 鼠标在左侧时 tooltip 显示到右侧，鼠标在右侧时 tooltip 显示到左侧。
+      var obj = {top: 0};
+      obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
+      return obj;
+  }
+    },
+    legend: {
+        data: ['点赞', '投币', '收藏', '转发', '弹幕']
+    },
+    dataZoom: [{
+        type: 'inside',
+        start: 0,
+        end: 2
+    }, {
+        type : 'slider',
+        start: 0,
+        end: 2
+    }],
+
+    toolbox: {
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        name:'排名',
+        type: 'category',
+        boundaryGap: false,
+
+           },
+    yAxis: {
+         name:'数量',
+        type: 'value'
+    },
+    series: [
+        {
+            name: '标题',
+            color:'#9bb5ff',
+            type: 'custom',
+            data: {{ bili_video_title|tojson }}
+        },
+        {
+            color:'#e74a3b',
+            name: '点赞',
+            type: 'line',
+
+            data: {{ bili_video_like|tojson }}
+        },
+        {   color:'#4e73df',
+            name: '投币',
+            type: 'line',
+
+            data: {{ bili_video_coin|tojson }}
+        },
+        {   color:'#f6c23e',
+            name: '收藏',
+            type: 'line',
+
+            data:{{ bili_video_collect|tojson }}
+        },
+        {   color:'#1cc88a',
+            name: '转发',
+            type: 'line',
+
+            data: {{ bili_video_share|tojson }}
+        },
+        {   color:'#36b9cc',
+            name: '弹幕',
+            type: 'line',
+
+            data: {{ bili_video_danmu|tojson }}
+        }
+    ]
+};
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart3.setOption(option3);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+var myChart4 = echarts.init(document.getElementById('tag-data-bili-video'));
+var colorList = [
+       '#4e73df',
+   '#6610f2',
+  '#6f42c1',
+   '#e83e8c',
+  '#e74a3b',
+ '#fd7e14',
+  '#f6c23e',
+ '#1cc88a',
+  '#20c9a6',
+  '#36b9cc'
+
+    ]
+
+var listtag = []
+for(index in {{ bili_video_tag1|tojson }} ){
+    let minSize = 0
+    if ({{bili_video_tag2|tojson }}[index]/10 <= 18){
+        minSize = 14
+    }
+    else{
+        minSize = {{bili_video_tag2|tojson }}[index]/10
+    }
+    item = {'name':{{ bili_video_tag1|tojson }}[index],'value':{{ bili_video_tag2|tojson }}[index],
+        "symbolSize": {{bili_video_tag2|tojson }}[index],
+            "draggable": true,
+            "label": {
+            'color': "#fff" ,
+            'fontSize': minSize,
+            'textBorderColor': colorList[index%10],
+                'textBorderWidth':1
+            },
+            "itemStyle": {
+                "normal": {
+                    "shadowBlur": 250,
+                    "shadowColor": colorList[index%10],
+                    "color": colorList[index%10]
+                }
+            }
+
+    }
+    listtag.push(item)
+}
+console.log(listtag)
+
+        // 指定图表的配置项和数据
+//跳转代码
+
+
+
+option4 = {
+    // 图表标题
+    title: {
+        show:true,//显示策略，默认值true,可选为：true（显示） | false（隐藏）
+        //text: '"新时代"主题图谱',//主标题文本，'\n'指定换行
+        x: 'center',        // 水平安放位置，默认为左对齐，可选为：
+                          // 'center' ¦ 'left' ¦ 'right'
+                          // ¦ {number}（x坐标，单位px）
+        y: 'bottom',             // 垂直安放位置，默认为全图顶端，可选为：
+                          // 'top' ¦ 'bottom' ¦ 'center'
+                          // ¦ {number}（y坐标，单位px）
+        //textAlign: null          // 水平对齐方式，默认根据x设置自动调整
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#ccc',    // 标题边框颜色
+        borderWidth: 0,         // 标题边框线宽，单位px，默认为0（无边框）
+        padding: 5,             // 标题内边距，单位px，默认各方向内边距为5，
+                                // 接受数组分别设定上右下左边距，同css
+        itemGap: 10,            // 主副标题纵向间隔，单位px，默认为10，
+        textStyle: {
+            fontSize: 18,
+            fontWeight: 'bolder',
+            color: '#333'        // 主标题文字颜色
+        },
+        subtextStyle: {
+            color: '#aaa'        // 副标题文字颜色
+        }
+    },
+    backgroundColor: '#fff',
+    tooltip: {},
+    animationDurationUpdate: function(idx) {
+        // 越往后的数据延迟越大
+        return idx * 100;
+    },
+    animationEasingUpdate: 'bounceIn',
+    color: ['#fff', '#fff', '#fff'],
+    series: [{
+        type: 'graph',
+        layout: 'force',
+        force: {
+            repulsion: 400,
+            edgeLength: 10
+        },
+        roam: true,
+        label: {
+            normal: {
+                show: true
+            }
+        },
+        data: listtag
+    }]
+}
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart4.setOption(option4);
+    </script>
+
+</body>
+
+</html>
