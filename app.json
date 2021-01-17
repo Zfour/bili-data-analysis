@@ -1,0 +1,7 @@
+{
+  "name": "Flask bili-data on Heroku",
+  "description": "Free and Relax",
+  "image": "heroku/python",
+  "repository": "https://git.heroku.com/bili-data",
+  "keywords": ["python", "flask" ]
+}
