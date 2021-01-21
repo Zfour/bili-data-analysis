@@ -980,12 +980,14 @@ option4 = {
         myChart4.setOption(option4);
     </script>
     <script type="text/javascript">
-        if($('#accordionSidebar').hasClass('toggled')){
-            myChart.resize();
-            myChart2.resize();
-            myChart3.resize();
-            myChart4.resize();
-        }
+        $('#sidebarToggleTop').click(
+     function (){
+             myChart.resize();
+             myChart2.resize();
+             myChart3.resize();
+             myChart4.resize();
+     }
+        )
     </script>
 </body>
 
