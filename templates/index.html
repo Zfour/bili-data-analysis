@@ -979,7 +979,15 @@ option4 = {
         // 使用刚指定的配置项和数据显示图表。
         myChart4.setOption(option4);
     </script>
+    <script type="text/javascript">
+        if($('#accordionSidebar').hasClass('toggled')){
+            myChart.resize();
+            myChart2.resize();
+            myChart3.resize();
+            myChart4.resize();
 
+        }
+    </script>
 </body>
 
 </html>
